@@ -1,16 +1,19 @@
 using WebshopApi.Models;
+using WebshopApi.Repositories;
 
 namespace WebshopApi.Services;
+
 public class CustomerService : ICustomerService
 {
+    private readonly ICustomerRepository _customerRepository;
+
+    public CustomerService(ICustomerRepository customerRepository)
+    {
+        _customerRepository = customerRepository;
+    }
+
     public Task<IEnumerable<Customer>> GetAllCustomersAsync()
     {
-        var customers = new List<Customer>
-        {
-            new Customer { Id = 1, Name = "John Doe", Email = "jd@gmail.com" },
-            new Customer { Id = 2, Name = "Jane Smith", Email = "js@gmail.com" }
-        };
-
-        return Task.FromResult(customers.AsEnumerable());
+        return _customerRepository.GetAllCustomersAsync();
     }
 }

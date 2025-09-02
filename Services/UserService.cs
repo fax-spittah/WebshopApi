@@ -27,9 +27,15 @@ public class UserService : IUserService
         return _userRepository.AddUserAsync(user);
     }
 
-    public Task UpdateUserAsync(User user)
+    public Task UpdateUserAsync(User existingUser, User updatedUser)
     {
-        return _userRepository.UpdateUserAsync(user);
+        existingUser.Name = updatedUser.Name;
+        existingUser.Email = updatedUser.Email;
+        existingUser.Password = updatedUser.Password;
+        existingUser.Role = updatedUser.Role;
+        existingUser.Address = updatedUser.Address;
+
+        return _userRepository.UpdateUserAsync(existingUser);
     }
 
     public Task DeleteUserAsync(int id)

@@ -13,6 +13,7 @@ public class UserRepository : IUserRepository
                 Id = 1,
                 Name = "John Doe",
                 Email = "john@example.com",
+                Password = "password123",
                 Address = "123 Main St",
             },
             new User
@@ -20,6 +21,7 @@ public class UserRepository : IUserRepository
                 Id = 2,
                 Name = "Jane Smith",
                 Email = "jane@example.com",
+                Password = "securepass",
                 Address = "456 Oak Ave",
             },
         };

@@ -4,5 +4,5 @@ namespace WebshopApi.Repositories;
 
 public interface IUserRepository
 {
-    Task<IEnumerable<User>> GetAllUsersAsync();
+    Task<List<User>> GetAllUsersAsync();
 }

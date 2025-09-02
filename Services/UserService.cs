@@ -12,7 +12,7 @@ public class UserService : IUserService
         _userRepository = userRepository;
     }
 
-    public Task<IEnumerable<User>> GetAllUsersAsync()
+    public Task<List<User>> GetAllUsersAsync()
     {
         return _userRepository.GetAllUsersAsync();
     }

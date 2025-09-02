@@ -1,31 +1,20 @@
+using Microsoft.EntityFrameworkCore;
+using WebshopApi.Common;
 using WebshopApi.Models;
 
 namespace WebshopApi.Repositories;
 
 public class UserRepository : IUserRepository
 {
-    public Task<IEnumerable<User>> GetAllUsersAsync()
-    {
-        var users = new List<User>
-        {
-            new User
-            {
-                Id = 1,
-                Name = "John Doe",
-                Email = "john@example.com",
-                Password = "password123",
-                Address = "123 Main St",
-            },
-            new User
-            {
-                Id = 2,
-                Name = "Jane Smith",
-                Email = "jane@example.com",
-                Password = "securepass",
-                Address = "456 Oak Ave",
-            },
-        };
+    private readonly WebShopContext _context;
 
-        return Task.FromResult(users.AsEnumerable());
+    public UserRepository(WebShopContext context)
+    {
+        _context = context;
+    }
+
+    public async Task<List<User>> GetAllUsersAsync()
+    {
+        return await _context.Users.ToListAsync();
     }
 }

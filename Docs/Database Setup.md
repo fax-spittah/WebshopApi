@@ -2,4 +2,4 @@
 
 ### Establishing the connection
 
-### Migrations
+### Migrations & Seeders

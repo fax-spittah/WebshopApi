@@ -20,9 +20,7 @@ if (string.IsNullOrEmpty(connectionString))
         "Database connection string 'ConnectionString:DefaultConnection' is not configured."
     );
 }
-builder.Services.AddDbContext<WebShopContext>(options =>
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
-);
+builder.Services.AddDbContext<WebShopContext>(options => options.UseSqlServer(connectionString));
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();

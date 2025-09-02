@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WebshopApi.Models;
+using WebshopApi.Seeds;
 
 namespace WebshopApi.Common;
 
@@ -16,4 +17,10 @@ public class WebShopContext : DbContext
     public DbSet<CartItem> CartItems { get; set; }
     public DbSet<OrderItem> OrderItems { get; set; }
     public DbSet<ProductCategory> ProductCategories { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.Seed();
+    }
 }

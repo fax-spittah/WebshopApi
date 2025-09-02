@@ -10,5 +10,5 @@ public class Product
     public List<CartItem> CartItems { get; set; } = new();
     public List<OrderItem> OrderItems { get; set; } = new();
     public List<ProductCategory> ProductCategories { get; set; } = new();
-    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime CreatedAt { get; set; }
 }
